@@ -1,0 +1,205 @@
+.browser-preview {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.06);
+  background: #e8e8e8;
+  font-family: system-ui, -apple-system, sans-serif;
+  max-width: 480px;
+}
+
+/* Top chrome bar */
+.browser-chrome {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  background: #d4d4d4;
+  padding: 8px 12px 0;
+  border-bottom: 1px solid #b8b8b8;
+}
+
+.browser-chrome__traffic-lights {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.traffic-light {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: block;
+}
+
+.traffic-light--red    { background: #ff5f57; }
+.traffic-light--yellow { background: #febc2e; }
+.traffic-light--green  { background: #28c840; }
+
+/* Tab strip */
+.browser-chrome__tab-strip {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  margin-left: 12px;
+  flex: 1;
+}
+
+.browser-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px 8px 0 0;
+  font-size: 12px;
+  max-width: 180px;
+  min-width: 120px;
+  cursor: default;
+  position: relative;
+}
+
+.browser-tab--active {
+  background: #f0f0f0;
+  color: #1a1a1a;
+  z-index: 1;
+}
+
+.browser-tab--inactive {
+  background: #c8c8c8;
+  color: #666;
+  font-size: 11px;
+}
+
+.browser-tab__favicon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.browser-tab__favicon-placeholder {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.browser-tab--inactive .browser-tab__favicon-placeholder {
+  background: #aaa;
+}
+
+.browser-tab__title {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+
+.browser-tab__title--muted {
+  font-weight: 400;
+  color: #888;
+}
+
+.browser-tab__close {
+  font-size: 14px;
+  line-height: 1;
+  color: #888;
+  flex-shrink: 0;
+}
+
+/* Dark mode browser variant */
+.browser-preview--dark {
+  background: #1e1e1e;
+}
+
+.browser-preview--dark .browser-chrome {
+  background: #2c2c2e;
+  border-bottom-color: #3a3a3c;
+}
+
+.browser-preview--dark .browser-tab--active {
+  background: #3a3a3c;
+  color: #f0f0f0;
+}
+
+.browser-preview--dark .browser-tab--inactive {
+  background: #252527;
+  color: #888;
+}
+
+.browser-preview--dark .browser-tab__favicon-placeholder {
+  background: #555;
+}
+
+.browser-preview--dark .browser-tab--inactive .browser-tab__favicon-placeholder {
+  background: #444;
+}
+
+.browser-preview--dark .browser-tab__title--muted {
+  color: #666;
+}
+
+.browser-preview--dark .browser-tab__close {
+  color: #666;
+}
+
+.browser-preview--dark .browser-address-bar {
+  background: #2c2c2e;
+  border-color: #444;
+}
+
+.browser-preview--dark .browser-address-bar__lock {
+  color: #aaa;
+}
+
+.browser-preview--dark .browser-address-bar__url {
+  color: #ccc;
+}
+
+/* Side-by-side pair layout */
+.browser-preview-pair {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.browser-preview-pair__item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.browser-preview-pair__label {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+/* Address bar */
+.browser-address-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0f0f0;
+  margin: 8px 12px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid #d0d0d0;
+}
+
+.browser-address-bar__lock {
+  color: #5a5a5a;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.browser-address-bar__url {
+  font-size: 12px;
+  color: #1a1a1a;
+}

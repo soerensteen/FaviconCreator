@@ -1,0 +1,240 @@
+/* ─── Design tokens ─────────────────────────────────────────────────────── */
+:root {
+  --color-bg: #f7f7f8;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f0f4ff;
+  --color-border: #e2e4e9;
+  --color-text: #111318;
+  --color-text-secondary: #555962;
+  --color-muted: #8a8f9e;
+  --color-accent: #3b5bdb;
+  --color-accent-hover: #2f4bbf;
+  --color-accent-subtle: #eef2ff;
+  --color-code-bg: #f5f6f8;
+  --color-code-text: #2e3440;
+  --color-success: #2f9e44;
+  --color-success-subtle: #ebfbee;
+  --color-error-bg: #fff5f5;
+  --color-error-border: #fcc2c3;
+  --color-error-text: #c92a2a;
+}
+
+/* ─── Dark theme overrides ──────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --color-bg: #111114;
+  --color-surface: #1c1c20;
+  --color-surface-hover: #1e2240;
+  --color-border: #2e2e36;
+  --color-text: #f0f0f5;
+  --color-text-secondary: #a0a0b0;
+  --color-muted: #6a6a80;
+  --color-accent: #5c7cfa;
+  --color-accent-hover: #4c6ef5;
+  --color-accent-subtle: #1a2050;
+  --color-code-bg: #18181e;
+  --color-code-text: #c9d1d9;
+  --color-success: #40c057;
+  --color-success-subtle: #0a2010;
+  --color-error-bg: #1e0808;
+  --color-error-border: #7c1c1c;
+  --color-error-text: #ff6b6b;
+}
+
+/* ─── Reset / base ──────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── App shell ─────────────────────────────────────────────────────────── */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ─── Header ────────────────────────────────────────────────────────────── */
+.app-header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 20px 0;
+}
+
+.app-header__inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.app-header__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-header__logo-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.app-header__name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.app-header__tagline {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--color-muted);
+}
+
+/* ─── Theme toggle ──────────────────────────────────────────────────────── */
+.theme-toggle {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  color: var(--color-text);
+  border-color: var(--color-text-secondary);
+}
+
+/* ─── Upload pair ───────────────────────────────────────────────────────── */
+.upload-pair {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+@media (max-width: 600px) {
+  .upload-pair {
+    flex-direction: column;
+  }
+}
+
+/* ─── Main content ──────────────────────────────────────────────────────── */
+.app-main {
+  flex: 1;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* ─── Sections ──────────────────────────────────────────────────────────── */
+.app-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.app-section--center {
+  align-items: center;
+  text-align: center;
+}
+
+.app-section__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* ─── Loading spinner ───────────────────────────────────────────────────── */
+.app-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-spinner__ring {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.app-status-text {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--color-muted);
+}
+
+/* ─── Error ─────────────────────────────────────────────────────────────── */
+.app-error {
+  padding: 14px 16px;
+  background: var(--color-error-bg);
+  border: 1px solid var(--color-error-border);
+  border-radius: 8px;
+  color: var(--color-error-text);
+  font-size: 0.9375rem;
+}
+
+/* ─── Footer ────────────────────────────────────────────────────────────── */
+.app-footer {
+  text-align: center;
+  padding: 24px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+}
+
+.app-footer p {
+  margin: 0;
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .app-header__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .app-main {
+    padding: 24px 16px;
+    gap: 24px;
+  }
+}

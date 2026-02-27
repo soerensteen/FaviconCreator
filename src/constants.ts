@@ -1,0 +1,151 @@
+import type { FaviconSpec } from './types';
+
+export const FAVICON_SPECS: FaviconSpec[] = [
+  {
+    id: 'ico',
+    filename: 'favicon.ico',
+    size: 48,
+    label: 'favicon.ico (16/32/48)',
+    isIco: true,
+    variant: 'light',
+  },
+  {
+    id: 'png-16',
+    filename: 'favicon-16x16.png',
+    size: 16,
+    label: '16×16 – Browser tab',
+    variant: 'light',
+  },
+  {
+    id: 'png-32',
+    filename: 'favicon-32x32.png',
+    size: 32,
+    label: '32×32 – Taskbar',
+    variant: 'light',
+  },
+  {
+    id: 'png-48',
+    filename: 'favicon-48x48.png',
+    size: 48,
+    label: '48×48 – Windows site icon',
+    variant: 'light',
+  },
+  {
+    id: 'png-64',
+    filename: 'favicon-64x64.png',
+    size: 64,
+    label: '64×64',
+    variant: 'light',
+  },
+  {
+    id: 'png-96',
+    filename: 'favicon-96x96.png',
+    size: 96,
+    label: '96×96',
+    variant: 'light',
+  },
+  {
+    id: 'png-128',
+    filename: 'favicon-128x128.png',
+    size: 128,
+    label: '128×128',
+    variant: 'light',
+  },
+  {
+    id: 'apple-touch',
+    filename: 'apple-touch-icon.png',
+    size: 180,
+    label: '180×180 – Apple Touch Icon',
+    variant: 'light',
+  },
+  {
+    id: 'android-192',
+    filename: 'android-chrome-192x192.png',
+    size: 192,
+    label: '192×192 – PWA',
+    variant: 'light',
+  },
+  {
+    id: 'android-512',
+    filename: 'android-chrome-512x512.png',
+    size: 512,
+    label: '512×512 – PWA splash',
+    variant: 'light',
+  },
+];
+
+export const DARK_FAVICON_SPECS: FaviconSpec[] = [
+  {
+    id: 'dark-ico',
+    filename: 'favicon-dark.ico',
+    size: 48,
+    label: 'favicon-dark.ico (16/32/48)',
+    isIco: true,
+    variant: 'dark',
+  },
+  {
+    id: 'dark-png-16',
+    filename: 'favicon-dark-16x16.png',
+    size: 16,
+    label: '16×16 – Browser tab (dark)',
+    variant: 'dark',
+  },
+  {
+    id: 'dark-png-32',
+    filename: 'favicon-dark-32x32.png',
+    size: 32,
+    label: '32×32 – Taskbar (dark)',
+    variant: 'dark',
+  },
+  {
+    id: 'dark-png-48',
+    filename: 'favicon-dark-48x48.png',
+    size: 48,
+    label: '48×48 – Windows site icon (dark)',
+    variant: 'dark',
+  },
+  {
+    id: 'dark-png-64',
+    filename: 'favicon-dark-64x64.png',
+    size: 64,
+    label: '64×64 (dark)',
+    variant: 'dark',
+  },
+  {
+    id: 'dark-png-96',
+    filename: 'favicon-dark-96x96.png',
+    size: 96,
+    label: '96×96 (dark)',
+    variant: 'dark',
+  },
+  {
+    id: 'dark-png-128',
+    filename: 'favicon-dark-128x128.png',
+    size: 128,
+    label: '128×128 (dark)',
+    variant: 'dark',
+  },
+  {
+    id: 'dark-apple-touch',
+    filename: 'apple-touch-icon-dark.png',
+    size: 180,
+    label: '180×180 – Apple Touch Icon (dark)',
+    variant: 'dark',
+  },
+  {
+    id: 'dark-android-192',
+    filename: 'android-chrome-dark-192x192.png',
+    size: 192,
+    label: '192×192 – PWA (dark)',
+    variant: 'dark',
+  },
+  {
+    id: 'dark-android-512',
+    filename: 'android-chrome-dark-512x512.png',
+    size: 512,
+    label: '512×512 – PWA splash (dark)',
+    variant: 'dark',
+  },
+];
+
+export const ICO_SIZES = [16, 32, 48];

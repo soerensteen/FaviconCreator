@@ -1,0 +1,128 @@
+.upload-zone-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.upload-zone__label {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.upload-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--color-border);
+  border-radius: 12px;
+  padding: 48px 24px;
+  cursor: pointer;
+  transition: border-color 0.15s, background-color 0.15s;
+  background: var(--color-surface);
+  user-select: none;
+  outline: none;
+}
+
+.upload-zone:hover,
+.upload-zone:focus-visible {
+  border-color: var(--color-accent);
+  background: var(--color-surface-hover);
+}
+
+.upload-zone--dragging {
+  border-color: var(--color-accent);
+  background: var(--color-accent-subtle);
+}
+
+.upload-zone--has-file {
+  padding: 24px;
+}
+
+.upload-zone--dark {
+  border-color: #4a4a5a;
+  background: #1e1e2e;
+}
+
+.upload-zone--dark:hover,
+.upload-zone--dark:focus-visible {
+  border-color: var(--color-accent);
+  background: #252535;
+}
+
+.upload-zone--dark.upload-zone--dragging {
+  border-color: var(--color-accent);
+  background: #252545;
+}
+
+.upload-zone--dark .upload-zone__title,
+.upload-zone--dark .upload-zone__filename {
+  color: #e0e0ee;
+}
+
+.upload-zone--dark .upload-zone__icon,
+.upload-zone--dark .upload-zone__subtitle,
+.upload-zone--dark .upload-zone__hint {
+  color: #8080a0;
+}
+
+.upload-zone__prompt,
+.upload-zone__file-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.upload-zone__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  color: var(--color-muted);
+  margin-bottom: 8px;
+}
+
+.upload-zone__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.upload-zone__icon--file {
+  color: var(--color-accent);
+  width: 36px;
+  height: 36px;
+}
+
+.upload-zone__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.upload-zone__subtitle {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.upload-zone__link {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.upload-zone__filename {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.upload-zone__hint {
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+}
