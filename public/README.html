@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Favicon Usage Instructions</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #1a1a1a; }
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.1rem; margin-top: 2rem; }
+    pre { background: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 6px; padding: 16px; overflow-x: auto; font-size: 0.875rem; }
+    p { line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <h1>Favicon Package</h1>
+  <p>Place all favicon files in the root of your website (or your <code>public/</code> folder).</p>
+
+  <h2>1. Add to your HTML <code>&lt;head&gt;</code></h2>
+  <pre>&lt;!-- Favicon – SVG (modern browsers, dark mode aware) --&gt;
+&lt;link rel="icon" type="image/svg+xml" media="(prefers-color-scheme: light)" href="/favicon.svg"&gt;
+&lt;link rel="icon" type="image/svg+xml" media="(prefers-color-scheme: dark)" href="/favicon-dark.svg"&gt;
+
+&lt;!-- Favicon – PNG/ICO fallback (older browsers) --&gt;
+&lt;link rel="icon" media="(prefers-color-scheme: light)" type="image/x-icon" href="/favicon.ico"&gt;
+&lt;link rel="icon" media="(prefers-color-scheme: light)" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="icon" media="(prefers-color-scheme: light)" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" media="(prefers-color-scheme: light)" type="image/png" sizes="48x48" href="/favicon-48x48.png"&gt;
+&lt;link rel="icon" media="(prefers-color-scheme: light)" type="image/png" sizes="64x64" href="/favicon-64x64.png"&gt;
+&lt;link rel="icon" media="(prefers-color-scheme: light)" type="image/png" sizes="96x96" href="/favicon-96x96.png"&gt;
+&lt;link rel="icon" media="(prefers-color-scheme: light)" type="image/png" sizes="128x128" href="/favicon-128x128.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+
+&lt;link rel="icon" media="(prefers-color-scheme: dark)" type="image/x-icon" href="/favicon-dark.ico"&gt;
+&lt;link rel="icon" media="(prefers-color-scheme: dark)" type="image/png" sizes="16x16" href="/favicon-dark-16x16.png"&gt;
+&lt;link rel="icon" media="(prefers-color-scheme: dark)" type="image/png" sizes="32x32" href="/favicon-dark-32x32.png"&gt;
+&lt;link rel="icon" media="(prefers-color-scheme: dark)" type="image/png" sizes="48x48" href="/favicon-dark-48x48.png"&gt;
+&lt;link rel="icon" media="(prefers-color-scheme: dark)" type="image/png" sizes="64x64" href="/favicon-dark-64x64.png"&gt;
+&lt;link rel="icon" media="(prefers-color-scheme: dark)" type="image/png" sizes="96x96" href="/favicon-dark-96x96.png"&gt;
+&lt;link rel="icon" media="(prefers-color-scheme: dark)" type="image/png" sizes="128x128" href="/favicon-dark-128x128.png"&gt;
+
+&lt;link rel="manifest" href="/site.webmanifest"&gt;</pre>
+
+  <h2>2. Create <code>site.webmanifest</code></h2>
+  <pre>{
+  "name": "My Website",
+  "short_name": "My Website",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}</pre>
+</body>
+</html>
