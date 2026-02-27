@@ -71,22 +71,7 @@ function App() {
       <header className="app-header">
         <div className="app-header__inner">
           <div className="app-header__logo">
-            <svg viewBox="0 0 32 32" fill="none" className="app-header__logo-icon">
-              <rect width="32" height="32" rx="7" fill="#3b5bdb"/>
-              <path
-                d="M8 24L16 8l8 16"
-                stroke="#fff"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M10.5 19h11"
-                stroke="#fff"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-              />
-            </svg>
+            <img src="/favicon.svg" alt="" className="app-header__logo-icon" width="32" height="32" />
             <span className="app-header__name">Favicon Creator</span>
           </div>
           <p className="app-header__tagline">
