@@ -19,7 +19,7 @@ async function generateFromFile(
   objectUrlsRef: React.MutableRefObject<string[]>,
 ): Promise<GeneratedFavicon[]> {
   const pngSizes = Array.from(
-    new Set([...ICO_SIZES, ...specs.filter((s) => !s.isIco).map((s) => s.size)]),
+    new Set([...ICO_SIZES, ...specs.filter((s) => !s.isIco && !s.isSvg).map((s) => s.size)]),
   );
 
   const sizeToBlob = new Map<number, Blob>();
@@ -33,11 +33,16 @@ async function generateFromFile(
   const icoBlobs = ICO_SIZES.map((s) => sizeToBlob.get(s)!);
   const icoBlob = await buildIco(icoBlobs);
 
+  // SVG blob — wrap the original SVG text
+  const svgBlob = new Blob([svgString], { type: 'image/svg+xml' });
+
   const generated: GeneratedFavicon[] = [];
 
   for (const spec of specs) {
     let blob: Blob;
-    if (spec.isIco) {
+    if (spec.isSvg) {
+      blob = svgBlob;
+    } else if (spec.isIco) {
       blob = icoBlob;
     } else {
       blob = sizeToBlob.get(spec.size)!;

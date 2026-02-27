@@ -2,6 +2,14 @@ import type { FaviconSpec } from './types';
 
 export const FAVICON_SPECS: FaviconSpec[] = [
   {
+    id: 'svg',
+    filename: 'favicon.svg',
+    size: 0,
+    label: 'Scalable SVG – Modern browsers',
+    isSvg: true,
+    variant: 'light',
+  },
+  {
     id: 'ico',
     filename: 'favicon.ico',
     size: 48,
@@ -75,6 +83,14 @@ export const FAVICON_SPECS: FaviconSpec[] = [
 ];
 
 export const DARK_FAVICON_SPECS: FaviconSpec[] = [
+  {
+    id: 'dark-svg',
+    filename: 'favicon-dark.svg',
+    size: 0,
+    label: 'Scalable SVG – Modern browsers (dark)',
+    isSvg: true,
+    variant: 'dark',
+  },
   {
     id: 'dark-ico',
     filename: 'favicon-dark.ico',

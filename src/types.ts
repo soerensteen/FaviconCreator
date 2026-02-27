@@ -4,6 +4,7 @@ export interface FaviconSpec {
   size: number;
   label: string;
   isIco?: boolean;
+  isSvg?: boolean;
   variant: 'light' | 'dark';
 }
 

@@ -84,11 +84,11 @@ interface SizeCellProps {
 
 function SizeCell({ favicon, selected, onToggle, isDark = false }: SizeCellProps) {
   const { spec, dataUrl } = favicon;
-  // Clamp display size: min 16, max 64
-  const displaySize = Math.min(64, Math.max(16, spec.size));
+  // SVG favicons are scalable — display at 64px; raster clamped to 16–64
+  const displaySize = spec.isSvg ? 64 : Math.min(64, Math.max(16, spec.size));
 
   return (
-    <label className={`size-cell ${selected ? 'size-cell--selected' : ''} ${isDark ? 'size-cell--dark-variant' : ''}`}>
+    <label className={`size-cell ${selected ? 'size-cell--selected' : ''} ${isDark ? 'size-cell--dark-variant' : ''} ${spec.isSvg ? 'size-cell--svg' : ''}`}>
       <input
         type="checkbox"
         className="size-cell__checkbox"
@@ -105,13 +105,15 @@ function SizeCell({ favicon, selected, onToggle, isDark = false }: SizeCellProps
             alt={spec.label}
             width={displaySize}
             height={displaySize}
-            style={{ imageRendering: spec.size <= 32 ? 'pixelated' : 'auto' }}
+            style={{ imageRendering: !spec.isSvg && spec.size <= 32 ? 'pixelated' : 'auto' }}
           />
         </div>
       </div>
       <div className="size-cell__info">
         <span className="size-cell__filename">{spec.filename}</span>
-        <span className="size-cell__label">{spec.label}</span>
+        <span className="size-cell__label">
+          {spec.isSvg ? <><span className="size-cell__svg-badge">SVG</span> Scalable</> : spec.label}
+        </span>
       </div>
     </label>
   );

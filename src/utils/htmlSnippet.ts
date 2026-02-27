@@ -4,7 +4,10 @@
  */
 export function generateHtmlSnippet(hasDark = false): string {
   if (!hasDark) {
-    return `<!-- Favicon -->
+    return `<!-- Favicon – SVG (modern browsers: Chrome 80+, Firefox 41+, Safari 16.4+) -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<!-- Favicon – PNG/ICO fallback (older browsers) -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -16,7 +19,11 @@ export function generateHtmlSnippet(hasDark = false): string {
 <link rel="manifest" href="/site.webmanifest">`;
   }
 
-  return `<!-- Favicon – light mode -->
+  return `<!-- Favicon – SVG (modern browsers, dark mode aware) -->
+<link rel="icon" type="image/svg+xml" media="(prefers-color-scheme: light)" href="/favicon.svg">
+<link rel="icon" type="image/svg+xml" media="(prefers-color-scheme: dark)" href="/favicon-dark.svg">
+
+<!-- Favicon – PNG/ICO fallback (older browsers) -->
 <link rel="icon" media="(prefers-color-scheme: light)" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" media="(prefers-color-scheme: light)" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" media="(prefers-color-scheme: light)" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -26,7 +33,6 @@ export function generateHtmlSnippet(hasDark = false): string {
 <link rel="icon" media="(prefers-color-scheme: light)" type="image/png" sizes="128x128" href="/favicon-128x128.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-<!-- Favicon – dark mode -->
 <link rel="icon" media="(prefers-color-scheme: dark)" type="image/x-icon" href="/favicon-dark.ico">
 <link rel="icon" media="(prefers-color-scheme: dark)" type="image/png" sizes="16x16" href="/favicon-dark-16x16.png">
 <link rel="icon" media="(prefers-color-scheme: dark)" type="image/png" sizes="32x32" href="/favicon-dark-32x32.png">
