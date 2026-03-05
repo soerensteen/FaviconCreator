@@ -12,8 +12,8 @@ function App() {
   const [svgFileDark, setSvgFileDark] = useState<File | null>(null);
   const [appTheme, setAppTheme] = useState<'light' | 'dark'>('light');
 
-  const allIds = [...FAVICON_SPECS.map((s) => s.id), ...DARK_FAVICON_SPECS.map((s) => s.id)];
-  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set(allIds));
+  const lightIds = FAVICON_SPECS.map((s) => s.id);
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set(lightIds));
 
   const { generatorState, faviconsLight, faviconsDark, error, generate, reset } = useFaviconGenerator();
 
@@ -29,6 +29,11 @@ function App() {
   const handleDarkFile = useCallback(
     async (file: File) => {
       setSvgFileDark(file);
+      setSelectedIds((prev) => {
+        const next = new Set(prev);
+        for (const s of DARK_FAVICON_SPECS) next.add(s.id);
+        return next;
+      });
       reset();
       if (svgFileLight) {
         await generate(svgFileLight, file);
@@ -49,10 +54,10 @@ function App() {
   const handleSelectAll = useCallback(() => {
     const ids = [
       ...FAVICON_SPECS.map((s) => s.id),
-      ...DARK_FAVICON_SPECS.map((s) => s.id),
+      ...(svgFileDark ? DARK_FAVICON_SPECS.map((s) => s.id) : []),
     ];
     setSelectedIds(new Set(ids));
-  }, []);
+  }, [svgFileDark]);
 
   const handleDeselectAll = useCallback(() => {
     setSelectedIds(new Set());

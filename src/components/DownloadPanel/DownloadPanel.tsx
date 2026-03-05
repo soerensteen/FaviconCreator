@@ -24,7 +24,7 @@ export function DownloadPanel({ faviconsLight, faviconsDark, selectedIds }: Down
   };
 
   const handleDownload = async () => {
-    if (selectedIds.size === 0) return;
+    if (selectedFavicons.length === 0) return;
     setDownloading(true);
     try {
       await buildAndDownloadZip(faviconsLight, faviconsDark, selectedIds);
@@ -33,7 +33,10 @@ export function DownloadPanel({ faviconsLight, faviconsDark, selectedIds }: Down
     }
   };
 
-  const selectedCount = selectedIds.size;
+  const allFavicons = [...faviconsLight, ...faviconsDark];
+  const selectedFavicons = allFavicons.filter((f) => selectedIds.has(f.spec.id));
+  // +2 for site.webmanifest and README.html included in ZIP
+  const selectedCount = selectedFavicons.length + 2;
 
   return (
     <div className="download-panel">
@@ -55,7 +58,7 @@ export function DownloadPanel({ faviconsLight, faviconsDark, selectedIds }: Down
       <button
         className="download-panel__download-btn"
         onClick={handleDownload}
-        disabled={selectedCount === 0 || downloading}
+        disabled={selectedFavicons.length === 0 || downloading}
       >
         {downloading ? (
           <span className="download-panel__spinner" aria-hidden="true" />
