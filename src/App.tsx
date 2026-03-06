@@ -196,7 +196,7 @@ function App() {
               })
             }
           >
-            Share with a friend &lt;3
+            Share with a friend <span style={{ color: '#e03131' }}>&#10084;</span>
           </button>
         )}
       </footer>
