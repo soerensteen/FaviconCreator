@@ -185,6 +185,20 @@ function App() {
 
       <footer className="app-footer">
         <p>All processing happens in your browser — your SVG never leaves your device.</p>
+        {navigator.share && (
+          <button
+            className="app-footer__share"
+            onClick={() =>
+              navigator.share({
+                title: 'Favicon Creator',
+                text: 'Convert any SVG to a complete favicon package in seconds',
+                url: window.location.href,
+              })
+            }
+          >
+            Share with a friend &lt;3
+          </button>
+        )}
       </footer>
     </div>
   );
